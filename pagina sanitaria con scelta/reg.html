@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Registrazione</title>
+  <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'><link rel="stylesheet" href="/parte web personale/style.css">
+<style>
+
+  input[type=button] {
+            background-color: rgb(255, 0, 0);
+            position: center;
+            border: none;
+            text-decoration: none;
+            color: white;
+            padding: 20px 202px;
+            margin: 10px 20px;
+            cursor: pointer;
+  }
+</style>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="login-form">
+  <form action="add-patient.html" method="post">
+    <center>    <h1>Registrazione</h1>   </center>
+
+    <div class="content">
+      <div class="input-field">
+        <input type="text" name="user" id="user" placeholder="Inserisci il tuo Nome" autocomplete="nope">
+      </div>
+      <div class="input-field">
+        <input type="password" id="pass" placeholder="inserisci una password" name="pass"  autocomplete="new-password">
+      </div>
+        <div class="input-field">
+          <input type="text" name="codiceFiscale" id="codiceFiscale" placeholder="Inserisci il tuo Codice Fiscale" autocomplete="nope">
+        </div>
+
+      <a href="/parte web personale/index.html" target="_blank" class="link">Vuoi eseguire l'accesso?</a>
+    </div>
+    <div class="action">
+      <input type="button" value="Registrati" onclick="validateForm()"> 
+    </div>
+  </form>
+</div>
+<script>
+
+  //controllo codice fiscale
+  function checkCodiceFiscale(codiceFiscale) {
+    var validChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    var i;
+    var s = 0;
+    var set1 = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var set2 = "ABCDEFGHIJABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var setpari = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var setdisp = "BAKPLCQDREVOSFTGUHMINJWZYX";
+    if (codiceFiscale.length != 16) return false;
+    for (i = 0; i < 16; i++) {
+        if (validChars.indexOf(codiceFiscale.charAt(i)) == -1) return false;
+    }
+    var s = 0;
+    for (i = 1; i <= 13; i += 2) s += setpari.indexOf(codiceFiscale.charAt(i));
+    for (i = 0; i <= 14; i += 2) s += setdisp.indexOf(codiceFiscale.charAt(i));
+    if (s % 26 != codiceFiscale.charCodeAt(15) - 'A'.charCodeAt(0)) return false;
+    return true;
+}
+
+function validateForm() {
+    var x = document.getElementById("codiceFiscale").value;
+    if (checkCodiceFiscale(x)) {
+        alert("Il codice fiscale è valido!");
+    } else {
+        alert("Il codice fiscale non è valido!");
+    }
+}
+
+
+</script>
+</body>
+</html>

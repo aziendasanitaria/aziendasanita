@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cerca Medico</title>
+    <link rel="stylesheet" href="./menu.css">
+
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+    <style>
+    /*    input[type=button] {
+            background-color: orange;
+            position: center;
+            border: none;
+            text-decoration: none;
+            color: white;
+            padding: 20px 20px;
+            margin: 20px 20px;
+            cursor: pointer;
+}
+
+        body {
+          margin: 0;
+        }
+        
+        ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          width: 15%;
+          background-color: #f1f1f1;
+          position: fixed;
+          height: 100%;
+          overflow: auto;
+        }
+        
+        li a {
+          display: block;
+          color: #000;
+          padding: 8px 16px;
+          text-decoration: none;
+        }
+        
+        li a.active {
+          background-color: #04AA6D;
+          color: white;
+        }
+        
+        li a:hover:not(.active) {
+          background-color: #555;
+          color: white;
+        } */
+</style> 
+  </head>
+  <body>
+    <!-- partial:index.partial.html -->
+<!-- / My brand -->
+<div class='brand'>
+  <a href='https://www.jamiecoulter.co.uk' target='_blank'>
+    <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/logo.png'>
+  </a>
+</div>
+<!-- / Begin Body -->
+<div class='swanky'>
+  <!-- / Introduction Block -->
+  <div class='swanky_title'>
+    <div class='swanky_title__social'>
+
+        <div class='slide'>
+          <div class='arrow'>
+            <div class='stem'></div>
+            <div class='point'></div>
+          </div>
+        </div>
+     
+      </a>
+    </div>
+    <div class='swanky_title__social'>
+      <a href='https://www.codepen.io/jcoulterdesign/' target='_blank'>
+        <div class='slide'>
+          <div class='arrow'>
+            <div class='stem'></div>
+            <div class='point'></div>
+          </div>
+        </div>
+        <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/cp.png'>
+        Codepen
+      </a>
+    </div>
+  </div>
+  <!-- /////////// Begin Dropdown //////////// -->
+  <div class='swanky_wrapper'>
+    <input id='Dashboard' name='radio' type='radio'>
+    <label for='Dashboard'>
+      <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/dash.png'>
+      <span>Dashboard</span>
+      <div class='lil_arrow'></div>
+      <div class='bar'></div>
+      <div class='swanky_wrapper__content'>
+        <ul>
+          <li>Tools</li>
+          <li>Reports</li>
+          <li>Analytics</li>
+          <li>Code Blocks</li>
+        </ul>
+      </div>
+    </label>
+    <input id='Sales' name='radio' type='radio'>
+    <label for='Sales'>
+      <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/del.png'>
+      <span>Sales</span>
+      <div class='lil_arrow'></div>
+      <div class='bar'></div>
+      <div class='swanky_wrapper__content'>
+        <ul>
+          <li>New Sales</li>
+          <li>Expired Sales</li>
+          <li>Sales Reports</li>
+          <li>Deliveries</li>
+        </ul>
+      </div>
+    </label>
+    <input id='Messages' name='radio' type='radio'>
+    <label for='Messages'>
+      <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/mess.png'>
+      <span>Messages</span>
+      <div class='lil_arrow'></div>
+      <div class='bar'></div>
+      <div class='swanky_wrapper__content'>
+        <ul>
+          <li>Inbox</li>
+          <li>Outbox</li>
+          <li>Sent</li>
+          <li>Archived</li>
+        </ul>
+      </div>
+    </label>
+    <input id='Users' name='radio' type='radio'>
+    <label for='Users'>
+      <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/users.png'>
+      <span>Users</span>
+      <div class='lil_arrow'></div>
+      <div class='bar'></div>
+      <div class='swanky_wrapper__content'>
+        <ul>
+          <li>New User</li>
+          <li>User Groups</li>
+          <li>Permissions</li>
+          <li>Passwords</li>
+        </ul>
+      </div>
+    </label>
+    <input id='Settings' radio='radio' type='radio'>
+    <label for='Settings'>
+      <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/set.png'>
+      <span>Settings</span>
+      <div class='lil_arrow'></div>
+      <div class='swanky_wrapper__content'>
+        <ul>
+          <li>Databases</li>
+          <li>Design</li>
+          <li>Change User</li>
+          <li>Log Out</li>
+        </ul>
+      </div>
+    </label>
+  </div>
+  <!-- /////////// End Dropdown //////////// -->
+</div>
+<!-- / My Footer -->
+<div class='love'>
+</div>
+<!-- partial -->
+  <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+
+<!--    <ul>
+      <li> <h3><a href="home.html"><font color="red">Home</font></a></h3></li>
+      <li> <h3> <a href="databasemedici.html">Database Medici</a></h3></li>
+          <li><h3> <a href="search-patient.html">Cerca paziente</a></h3></li>
+              <li> <h3><a href="search-doctor.html">Cerca medico</a></li>
+                <h3><br> <br>
+                  <li> <b> <font color="red">Software informazioni:</font></b></li> <br>
+                  <li> <a href="/file aggiuntivi/Informatica documento specifica Gaetano (1).pdf" target="_blank">Visualizza il documento di analisi</a>
+                  <li> <a href="#"> Scarica qui il programma</a></li>
+
+<br> <br><br> <br><br> <br><br> 
+<br><br> <br><br> <br><br> <br>
+<br> <br><br> <br>
+
+                  <li><h5><a href="/pagina sanitaria con scelta/aziendasanitaria.html" > <font color="blue"> DISCONNETTITI</font></a></h5></li>
+                  <li><h5><U><a href="#" target="_blank">Contatta l'assistenza</U></a></h5> </li>
+              </h3> </ul>
+    
+    <div style="margin-left:10%;padding:1px 10px;height:1000px;">-->
+<center>
+    <h1>Cerca un Medico</h1>
+    <form>
+      <label for="name">Nome:</label>
+      <input type="text" id="name" name="name"><br>
+      
+      <label for="surname">Cognome:</label>
+      <input type="text" id="surname" name="surname"><br>
+
+    <!--   <label for="iscritti_codicefiscale">Codice Fiscale:</label>
+      <input type="text" id="iscritti_codicefiscale" name="iscritti_codicefiscale"> <br>
+     pattern="^[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]$"-->
+    
+       <button type="button" id="btnsearch">Cerca</button>
+
+       <p id="words">
+    </form>
+  <br> <br>
+  </div> </p></center> 
+    <script>
+       /*
+    function searchdoctor(file,name,surname,iscritti_codicefiscale,matricola) {
+            // Legge il contenuto del file di testo
+            fetch(file)
+                .then(response => response.text())
+                .then(data => {
+                    // Crea un array di oggetti a partire dal contenuto del file
+                    let dataArray = data.split("\r\n").map(user => {
+                    let userData = user.split("*");
+                    return { name: userData[0], surname: userData[1], iscritti_codicefiscale: userData[2],matricola: userData[3], licenza: userData[4] }
+        });
+                    
+                    // Scorre gli elementi dell'array e confronta i valori inseriti con quelli del file
+                    for (let i = 0; i < dataArray.length; i++) {
+                        if (dataArray[i].name === name && dataArray[i].surname === surname && dataArray[i].iscritti_codicefiscale === iscritti_codicefiscale) {
+                            // Se i valori corrispondono, visualizza un messaggio di conferma e permette l'accesso
+                           // var risultato = "IL medico ha" + ;
+                            //alert("DOTTORE ESISTENTE")
+                            //window.open("home.html", "_blank");
+                             let p = document.createElement("p");
+                             p.innerHTML = `matricola: ${results[i].matricola} licenza: ${results[i].licenza}`;
+                             document.getElementById("results").appendChild(p);
+                            return true;
+                        }
+                    }
+                    // Se i valori non corrispondono, visualizza un messaggio di errore e impedisce l'accesso
+                    alert("dottore Inesistente");
+                    return false;
+                })
+                .catch(error => {
+                    // Gestisce eventuali errori nella lettura del file
+                    console.log("Errore: " + error);
+                    return false;
+                });
+        }
+        // Associamo l'evento click al pulsante di accesso
+        const btn = document.getElementById("btnsearch");
+        btn.addEventListener("click", function() {
+            let name = document.getElementById("name").value;
+            let surname = document.getElementById("surname").value;
+            let iscritti_codicefiscale = document.getElementById("iscritti_codicefiscale").value;
+            let matricola = document.getElementById("matricola").value;
+
+       
+
+            searchdoctor("/file/dottoris.txt", name, surname,iscritti_codicefiscale, matricola);
+        });  */
+
+        
+//nome cognome cf --> stampa codice fiscale matricola e licenza
+//metodo cerca dottore
+  function searchdoctor(file, name, surname) {
+            // Legge il contenuto del file di testo
+            fetch(file)
+                .then(response => response.text())
+                .then(data => {
+                    // Crea un array di oggetti a partire dal contenuto del file
+                    let dataArray = data.split("\r\n").map(user => {
+                    let userData = user.split("*");
+                    return { name: userData[0], surname: userData[1], iscritti_codicefiscale: userData[2], matricola: userData[3], licenza: userData[4] }
+        });
+                    
+                    // Scorre gli elementi dell'array e confronta i valori inseriti con quelli del file
+                    for (let i = 0; i < dataArray.length; i++) {
+                        if (dataArray[i].name === name && dataArray[i].surname === surname) {
+                            // Se i valori corrispondono, visualizza un messaggio di conferma e permette l'accesso
+                            alert("Dottore:"+dataArray[i].name+" " + dataArray[i].surname +" presente nel database. \n" + "Matricola: " + dataArray[i].matricola + "\nNumero pazienti associati: " + dataArray[i].licenza + "\nCodice fiscale dottore:" + dataArray[i].iscritti_codicefiscale);
+                        return true;
+                        }
+                    }
+                    // Se i valori non corrispondono, visualizza un messaggio di errore e impedisce l'accesso
+                    alert("Dottore Inesistente");
+                    return false;
+                })
+                .catch(error => {
+                    // Gestisce eventuali errori nella lettura del file
+                    console.log("Errore: " + error);
+                    return false;
+                });
+        }
+        // Associamo l'evento click al pulsante di accesso
+        const btn = document.getElementById("btnsearch");
+        btn.addEventListener("click", function() {
+            let name = document.getElementById("name").value;
+            let surname = document.getElementById("surname").value;
+      
+
+            searchdoctor("/file/dottoris.txt", name,surname);
+        });
+
+
+    
+
+
+    </script>
+  </body>
+</html>
+</center>
+  </body>
+</html>

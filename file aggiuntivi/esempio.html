@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style> .highlight { background-color: yellow; } </style>
+
+    <script>
+                   function insertFilesIntoHTML() { //V
+        // Get the file contents using the fetch API
+        fetch('/file/accessipazienti.txt')
+          .then(response => response.text())
+          .then(data => {
+            // Insert the contents of dati.txt into a <p> element with an ID
+            const datiParagraph = document.createElement('p');
+            datiParagraph.setAttribute("id", "accessipazienti");
+            datiParagraph.innerText = data;
+            document.body.appendChild(datiParagraph);
+          });
+  
+        fetch('/file/passadmin.txt') //V
+          .then(response => response.text())
+          .then(data => {
+            // Insert the contents of peppe.txt into a <p> element with an ID
+            const peppeParagraph = document.createElement('p');
+            peppeParagraph.setAttribute("id", "dati");
+            peppeParagraph.innerText = data;
+            document.body.appendChild(peppeParagraph);
+          });
+  //dottoris pazienti dati 
+        fetch('/file/dottoris.txt')
+          .then(response => response.text())
+          .then(data => {
+            // Insert the contents of nomi.txt into a <p> element with an ID
+            const nomiParagraph = document.createElement('p');
+            nomiParagraph.setattribute("id", "dottoris");
+            nomiParagraph.innerText = data;
+            document.body.appendChild(nomiParagraph);
+          });
+      
+      fetch('/file/pazientis.txt')
+          .then(response => response.text())
+          .then(data => {
+            // Insert the contents of nomi.txt into a <p> element with an ID
+            const pazientis = document.createElement('p');
+            pazientis.setattribute("id", "pazientis");
+            pazientis.innerText = data;
+            document.body.appendChild(pazientis);
+          });
+      
+      fetch('/file/accessipersonale.txt')
+          .then(response => response.text())
+          .then(data => {
+            // Insert the contents of nomi.txt into a <p> element with an ID
+            const accessipersonale = document.createElement('p');
+            accessipersonale.setattribute("id", "accessipersonale");
+            accessipersonale.innerText = data;
+            document.body.appendChild(accessipersonale);
+          });
+        }
+  
+      function search() {
+        const searchTerm = document.getElementById("search").value;
+        if (!searchTerm) return;
+        const paragraphs = document.getElementsByTagName("p");
+        for (let i = 0; i < paragraphs.length; i++) {
+          const paragraph = paragraphs[i];
+          const text = paragraph.innerText;
+          const newText = text.replace(new RegExp(`(${searchTerm})`, "gi"), '<span class="highlight">$1</span>');
+          paragraph.innerHTML = newText;
+        }
+      }
+    
+    </script>
+  </head>
+  <body onload="insertFilesIntoHTML()">
+    <input type="text" id="search" placeholder="Enter search term" oninput="search()">
+  </body>
+</html>

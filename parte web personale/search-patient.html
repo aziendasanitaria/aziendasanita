@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cerca Paziente</title>
+    
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+        <link rel="stylesheet" href="menu.css">
+        <link rel="stylesheet" href="./pulsante1.css">
+    <style>
+      input[type=button] {
+            background-color: orange;
+            position: center;
+            border: none;
+            text-decoration: none;
+            color: white;
+            padding: 20px 20px;
+            margin: 20px 20px;
+            cursor: pointer;
+}
+#p1 {
+  font-size: 30px;
+}
+#p2 {
+  font-size: 30px;
+}
+#p3{
+  font-size: 30px;
+}
+input[type=text]{
+  width:30%;
+  border:2px;
+  border-radius:4px;
+  margin:8px 0;
+  outline:none;
+  padding:8px;
+  box-sizing:border-box;
+  transition:.3s;
+}
+
+
+  
+</style> 
+
+  </head>
+  <body>
+    <div class='swanky_wrapper'>
+      <input id='Dashboard' name='radio' type='radio'>
+      <label for='Dashboard'>
+        <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/dash.png'>
+        <span>Database</span>
+        <div class='lil_arrow'></div>
+        <div class='bar'></div>
+        <div class='swanky_wrapper__content'>
+          <ul>
+            <li><a href="accessoADMINpersonale.html">Database</a></li>
+            <li><a href="home.html">Home</a></li>
+            <li>#</li>
+            <li>#</li>
+          </ul>
+        </div>
+      </label>
+      <input id='Sales' name='radio' type='radio'>
+      <label for='Sales'>
+        <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/del.png'>
+        <span>Funzioni</span>
+        <div class='lil_arrow'></div>
+        <div class='bar'></div>
+        <div class='swanky_wrapper__content'>
+          <ul>
+            <!--     <li> <h3><a href="home.html"><font color="red">Home</font></a></h3></li>
+        <li> <h3> <a href="databasemedici.html">Database Medici</a></h3></li>
+            <li><h3> <a href="search-patient.html">Cerca paziente</a></h3></li>
+                <li> <h3><a href="search-doctor.html">Cerca medico</a></li>-->
+            <li> <a href="search-doctor.html">Cerca medico</a></li>
+            <li><a href="informazionimedici.html">Visualizza dati salvati medici</a></li>
+            <li><a href="search-patient.html">Cerca paziente</a></li>
+            <li><a href="informazionipazienti.html">Visualizza dati salvati pazienti</a></li>
+          </ul>
+        </div>
+      </label>
+      <input id='Messages' name='radio' type='radio'>
+      <label for='Messages'>
+        <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/mess.png'>
+        <span>Messaggi</span>
+        <div class='lil_arrow'></div>
+        <div class='bar'></div>
+        <div class='swanky_wrapper__content'>
+          <ul>
+            <li><a href="socialpage.html">Social</a></li>
+            <li><a href="/contact page/index.html">Contatti</a></li>
+            <li><a href="https://docs.google.com/document/d/1VF00AzP4ZtUFivMkldWEGGmBwGR6vLE1VVVvXgK3EXo/edit?usp=sharing" target="_blank">Documenazione</a></li>
+            
+            <li>#</li>
+          </ul>
+        </div>
+      </label>
+      <input id='Users' name='radio' type='radio'>
+      <label for='Users'>
+        <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/users.png'>
+        <span>Utente</span>
+        <div class='lil_arrow'></div>
+        <div class='bar'></div>
+        <div class='swanky_wrapper__content'>
+          <ul>
+            <li><a href="/pagina sanitaria con scelta/reg.html">Crea nuovo account</a></li>
+            <li><a href="/pagina sanitaria con scelta/aziendasanitaria.html">Disconnettiti</a></li>
+            <li><a href="/pagina sanitaria con scelta/accessopazienti.html">Accedi come paziente</a></li>
+            <li><a href="assistenza.html">Assistenza</a></li>
+          </ul>
+        </div>
+      </label>
+    </div>
+    <!-- /////////// End Dropdown //////////// -->
+  </div>
+<center>
+    <h1><font color="blue">Cerca un Paziente</font></h1>
+    <form>
+      <label for="name"><h2 id="p1">Nome:</h2></label><br>
+      <input type="text" id="name" name="name"><br>
+      
+      <label for="surname"><h2 id="p2">Cognome:</h2></label><br>
+      <input type="text" id="surname" name="surname"><br>
+ 
+      <label for="cf"><h2 id="p3">Codice Fiscale:</h2></label><br>
+      <input type="text" id="cf" name="cf"><br><br>
+  <!--<br>
+      <label for="Nm">Nome medico Curante:</label>
+      <input type="text" id="Nm" name="Nm"><br>
+
+      <label for="Cm">Cognome medico Curante:</label>
+      <input type="text" id="Cm" name="Cm"><br>
+
+      <label for="Matricola">Matricola:</label>
+      <input type="text" id="mat" name="mat"><br>
+-->
+     <button type="button" id="btnsearchp" class="custom-btn btn-2"> Cerca </button>
+    </form>
+    <div id="results"></div>
+</center>
+
+<script>
+
+
+        function searchdoctor(file, name, surname,cf) {
+            // Legge il contenuto del file di testo
+            fetch(file)
+                .then(response => response.text())
+                .then(data => {
+                    // Crea un array di oggetti a partire dal contenuto del file
+                    let dataArray = data.split("\r\n").map(user => {
+                    let userData = user.split("*");
+                    return { name: userData[0], surname: userData[1], cf: userData[2], campo1: userData[3], campo2: userData[4], campo3: userData[5] }
+        });
+                    
+                    // Scorre gli elementi dell'array e confronta i valori inseriti con quelli del file
+                    for (let i = 0; i < dataArray.length; i++) {
+                        if (dataArray[i].name === name && dataArray[i].surname === surname && dataArray[i].cf) {
+                            // Se i valori corrispondono, visualizza un messaggio di conferma e permette l'accesso
+                            //nome cognome codicefiscale nomemedico cognomemedico matricola
+                            alert("Paziente:"+dataArray[i].name+" " + dataArray[i].surname +" presente nel database. \n" + "Medico curante: " + dataArray[i].campo1 + " "+dataArray[i].campo2 + "\nCodice fiscale paziente:" + dataArray[i].cf +"\nMatricola paziente: "+ dataArray[i].campo3);
+                        return true;
+                        }
+                    }
+                    // Se i valori non corrispondono, visualizza un messaggio di errore e impedisce l'accesso
+                    alert("Paziente Inesistente");
+                    return false;
+                })
+                .catch(error => {
+                    // Gestisce eventuali errori nella lettura del file
+                    console.log("Errore: " + error);
+                    return false;
+                });
+        }
+        // Associamo l'evento click al pulsante di accesso
+        const btn = document.getElementById("btnsearchp");
+        btn.addEventListener("click", function() {
+            let name = document.getElementById("name").value;
+            let surname = document.getElementById("surname").value;
+            let cf = document.getElementById("cf").value;
+
+            searchdoctor("/file/pazientis.txt", name,surname,cf);
+        });
+
+</script>
+  </body>
+</html>
+

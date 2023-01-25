@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Database</title>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+    
+<style>
+input[type=text]{
+  width:32%;
+  border:2px;
+  border-radius:4px;
+  margin:8px 0;
+  outline:none;
+  padding:8px;
+  box-sizing:border-box;
+  transition:.3s;
+}
+
+</style>
+  </head>
+    <style>
+      .highlight {
+    text-decoration: underline;
+}
+
+         p {
+        text-align: center;
+      }
+
+     .highlight { 
+      background-color: yellow; 
+}
+.text-center {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+#accessipazienti {
+   font-size: 40px;
+}
+#dottoris {
+   font-size: 40px;
+}
+#passadmin {
+   font-size: 40px;
+}
+#pazientis {
+   font-size: 40px;
+}
+
+#accessipersonale {
+   font-size: 40px;
+}
+#database {
+  font-size: 50px;
+}
+
+
+    </style>
+    <script>
+ 
+function insertFilesIntoHTML() {
+    // Get the file contents using the fetch API
+    fetch('/file/accessipazienti.txt')
+      .then(response => response.text())
+      .then(data => {
+        // Insert the contents of dati.txt into a <p> element with an ID
+        const datiParagraph = document.createElement('p');
+        datiParagraph.setAttribute("id", "accessipazienti");
+        datiParagraph.innerText = data;
+        document.body.appendChild(datiParagraph);
+      });
+      
+    fetch('/file/dottoris.txt')
+      .then(response => response.text())
+      .then(data => {
+        // Insert the contents of dati.txt into a <p> element with an ID
+        const datiParagraph = document.createElement('p');
+        datiParagraph.setAttribute("id", "dottoris");
+        datiParagraph.innerText = data;
+        document.body.appendChild(datiParagraph);
+      });
+      
+    fetch('/file/passadmin.txt')
+      .then(response => response.text())
+      .then(data => {
+        // Insert the contents of peppe.txt into a <p> element with an ID
+        const peppeParagraph = document.createElement('p');
+        peppeParagraph.setAttribute("id", "passadmin");
+        peppeParagraph.innerText = data;
+        document.body.appendChild(peppeParagraph);
+      });
+
+    fetch('/file/pazientis.txt')
+      .then(response => response.text())
+      .then(data => {
+        // Insert the contents of dati.txt into a <p> element with an ID
+        const datiParagraph = document.createElement('p');
+        datiParagraph.setAttribute("id", "pazientis");
+        datiParagraph.innerText = data;
+        document.body.appendChild(datiParagraph);
+      });
+      
+    fetch('/file/accessipersonale.txt')
+      .then(response => response.text())
+      .then(data => {
+        // Insert the contents of dati.txt into a <p> element with an ID
+        const datiParagraph = document.createElement('p');
+        datiParagraph.setAttribute("id", "accessipersonale");
+        datiParagraph.innerText = data;
+        document.body.appendChild(datiParagraph);
+      });
+}
+
+function search() {
+    const searchTerm = document.getElementById("search").value;
+    if (!searchTerm) return;
+
+    const accessipazienti = document.getElementById("accessipazienti");
+    const dottoris = document.getElementById("dottoris");
+    const passadmin = document.getElementById("passadmin");
+    const pazientis = document.getElementById("pazientis");
+    const accessipersonale = document.getElementById("accessipersonale");
+
+    const paragraphs = [accessipazienti, dottoris, passadmin, pazientis, accessipersonale];
+    for (let i = 0; i < paragraphs.length; i++) {
+      const paragraph = paragraphs[i];
+      const text = paragraph.innerText;
+      const newText = text.replace(new RegExp(`(${searchTerm})`, "gi"), `<span class="highlight">$1</span>`);
+      paragraph.innerHTML = `<div style='text-align: center;'>${newText}</div>`;
+    }
+  }
+
+  function toggleMenu() {
+    const menu = document.getElementById("menù");
+    if (menu.style.display === "none") {
+      menu.style.display = "block";
+    } else {
+      menu.style.display = "none";
+    }
+  }
+
+  let databaseGenerated = false;
+
+function generateDatabase() {
+  if (!databaseGenerated) {
+    // Code to generate the database goes here
+    databaseGenerated = true;
+  } else {
+    alert("Database già Creta!");
+  }
+}
+
+function goBack() {
+  window.location.href = "home.html";
+}
+
+/*
+function searchdoctor(file, name, surname,cf) {
+            // Legge il contenuto del file di testo
+            fetch(file)
+                .then(response => response.text())
+                .then(data => {
+                    // Crea un array di oggetti a partire dal contenuto del file
+                    let dataArray = data.split("\r\n").map(user => {
+                    let userData = user.split("*");
+                    return { name: userData[0], surname: userData[1], cf: userData[2], campo1: userData[3], campo2: userData[4], campo3: userData[5] }
+        });
+                    
+                    // Scorre gli elementi dell'array e confronta i valori inseriti con quelli del file
+                    for (let i = 0; i < dataArray.length; i++) {
+                        if (dataArray[i].name === name && dataArray[i].surname === surname && dataArray[i].cf) {
+                            // Se i valori corrispondono, visualizza un messaggio di conferma e permette l'accesso
+                            //nome cognome codicefiscale nomemedico cognomemedico matricola
+                            alert("Paziente:"+dataArray[i].name+" " + dataArray[i].surname +" presente nel database. \n" + "Medico curante: " + dataArray[i].campo1 + " "+dataArray[i].campo2 + "\nCodice fiscale paziente:" + dataArray[i].cf +"\nMatricola paziente: "+ dataArray[i].campo3);
+                        return true;
+                        }
+                    }
+                    // Se i valori non corrispondono, visualizza un messaggio di errore e impedisce l'accesso
+                    alert("Paziente Inesistente");
+                    return false;
+                })
+                .catch(error => {
+                    // Gestisce eventuali errori nella lettura del file
+                    console.log("Errore: " + error);
+                    return false;
+                });
+        }
+        // Associamo l'evento click al pulsante di accesso
+        const btn = document.getElementById("btnsearchp");
+        btn.addEventListener("click", function() {
+            let name = document.getElementById("name").value;
+            let surname = document.getElementById("surname").value;
+            let cf = document.getElementById("cf").value;
+
+            searchdoctor("/file/pazientis.txt", name,surname,cf);
+        });
+
+*/
+
+
+
+//funzione ricerca su più file 
+/* 
+ricerca su: dottoris, pazientis, 
+*/
+
+function cerca(name) {
+// Legge il contenuto del file di testo
+fetch(file)
+.then(response => response.text())
+.then(data => {
+// Crea un array di oggetti a partire dal contenuto del file
+let dataArray = data.split("\r\n").map(user => {
+let userData = user.split("*");
+return { name: userData[0], surname: userData[1], cf: userData[2], campo1: userData[3], campo2: userData[4], campo3: userData[5] }
+});
+
+        // Scorre gli elementi dell'array e confronta i valori inseriti con quelli del file
+        for (let i = 0; i < dataArray.length; i++) {
+            if (dataArray[i].name === name) {
+                // Se i valori corrispondono, visualizza un messaggio di conferma e permette l'accesso
+                //nome cognome codicefiscale nomemedico cognomemedico matricola
+                alert("Paziente:" + dataArray[i].name + " " + dataArray[i].surname + " presente nel database. \n" + "Medico curante: " + dataArray[i].campo1 + " " + dataArray[i].campo2 + "\nCodice fiscale paziente:" + dataArray[i].cf + "\nMatricola paziente: " + dataArray[i].campo3);
+                return true;
+            }
+        }
+        // Se i valori non corrispondono, visualizza un messaggio di errore e impedisce l'accesso
+        alert("Paziente Inesistente");
+        return false;
+    })
+    .catch(error => {
+        // Gestisce eventuali errori nella lettura del file
+        console.log("Errore: " + error);
+        return false;
+      });
+        }
+        // Associamo l'evento click al pulsante di accesso
+        const a = document.getElementById("bottone");
+       a.addEventListener("click", function() {
+        let name = document.getElementById("name").value;
+
+            cerca("/file/dottoris.txt", name);
+        });
+
+
+
+
+
+
+
+    </script>
+    </head>
+  <body background="red">
+
+    <div class='swanky_wrapper'>
+      <input id='Dashboard' name='radio' type='radio'>
+      <label for='Dashboard'>
+        <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/dash.png'>
+        <span>Database</span>
+        <div class='lil_arrow'></div>
+        <div class='bar'></div>
+        <div class='swanky_wrapper__content'>
+          <ul>
+            <li><a href="databasemedici.html">Database</a></li>
+            <li><a href="home.html">Home</a></li>
+            <li>#</li>
+            <li>#</li>
+          </ul>
+        </div>
+      </label>
+      <input id='Sales' name='radio' type='radio'>
+      <label for='Sales'>
+        <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/del.png'>
+        <span>Funzioni</span>
+        <div class='lil_arrow'></div>
+        <div class='bar'></div>
+        <div class='swanky_wrapper__content'>
+          <ul>
+            <!--     <li> <h3><a href="home.html"><font color="red">Home</font></a></h3></li>
+        <li> <h3> <a href="databasemedici.html">Database Medici</a></h3></li>
+            <li><h3> <a href="search-patient.html">Cerca paziente</a></h3></li>
+                <li> <h3><a href="search-doctor.html">Cerca medico</a></li>-->
+            <li> <a href="search-doctor.html">Cerca medico</a></li>
+            <li><a href="informazionimedici.html">Visualizza dati salvati medici</a></li>
+            <li><a href="search-patient.html">Cerca paziente</a></li>
+            <li><a href="informazionipazienti.html">Visualizza dati salvati pazienti</a></li>
+          </ul>
+        </div>
+      </label>
+      <input id='Messages' name='radio' type='radio'>
+      <label for='Messages'>
+        <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/mess.png'>
+        <span>Messaggi</span>
+        <div class='lil_arrow'></div>
+        <div class='bar'></div>
+        <div class='swanky_wrapper__content'>
+          <ul>
+            <li><a href="socialpage.html">Social</a></li>
+            <li><a href="/contact page/index.html">Contatti</a></li>
+            <li><a href="https://docs.google.com/document/d/1VF00AzP4ZtUFivMkldWEGGmBwGR6vLE1VVVvXgK3EXo/edit?usp=sharing" target="_blank">Documenazione</a></li>
+            <li>#</li>
+          </ul>
+        </div>
+      </label>
+      <input id='Users' name='radio' type='radio'>
+      <label for='Users'>
+        <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/users.png'>
+        <span>Utente</span>
+        <div class='lil_arrow'></div>
+        <div class='bar'></div>
+        <div class='swanky_wrapper__content'>
+          <ul>
+            <li><a href="/pagina sanitaria con scelta/reg.html">Crea nuovo account</a></li>
+            <li><a href="/pagina sanitaria con scelta/aziendasanitaria.html">Disconnettiti</a></li>
+            <li><a href="/pagina sanitaria con scelta/accessopazienti.html">Accedi come paziente</a></li>
+            <li><a href="assistenza.html">Assistenza</a></li>
+          </ul>
+        </div>
+      </label>
+      </div>
+
+<center>
+    <h1 id="database"><font color="blue">DATABASE</font></h1>
+  <button onclick="insertFilesIntoHTML(); toggleMenu(); generateDatabase() " class="custom-btn btn-5">Genera database</button> <br>
+  <input type="text" id="search" placeholder="Clicca qui per cercare" oninput="search()" > <br>
+  <input type="text" id="name" placeholder="Cerca nome" >
+  <button type="button" id="bottone">Cerca</button> <br>
+  <br>
+  <button onclick="goBack()" class="custom-btn btn-4">Torna Indietro</button>    
+      
+    </center>
+    </form>
+  </body>
+</html>

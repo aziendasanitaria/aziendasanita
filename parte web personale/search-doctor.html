@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cerca Medico</title>
+    <link rel="stylesheet" href="menu.css">
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="./pulsante1.css">
+    <style>
+      input[type=text]{
+        width:30%;
+        border:2px;
+        border-radius:4px;
+        margin:8px 0;
+        outline:none;
+        padding:8px;
+        box-sizing:border-box;
+        transition:.3s;
+      }
+      
+    
+      .alert {
+    background-color: yellow;
+    color: black;
+}
+
+      #btnsearch {
+          background-color: blue;
+          color: white;
+          padding: 10px 20px;
+          font-size: 16px;
+      }
+      #nome {
+  font-size: 30px;
+}
+#cognome {
+  font-size: 30px;
+}
+#medico {
+  font-size: 50px;
+}
+
+    </style>
+
+  </head>
+  <body>
+    <!-- partial:index.partial.html -->
+<!-- / My brand -->
+
+<!-- / Begin Body -->
+
+  <!-- / Introduction Block -->
+
+       
+  <!-- /////////// Begin Dropdown //////////// -->
+  <div class='swanky_wrapper'>
+    <input id='Dashboard' name='radio' type='radio'>
+    <label for='Dashboard'>
+      <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/dash.png'>
+      <span>Database</span>
+      <div class='lil_arrow'></div>
+      <div class='bar'></div>
+      <div class='swanky_wrapper__content'>
+        <ul>
+          <li><a href="accessoADMINpersonale.html">Database</a></li>
+          <li><a href="home.html">Home</a></li>
+          <li>#</li>
+          <li>#</li>
+        </ul>
+      </div>
+    </label>
+    <input id='Sales' name='radio' type='radio'>
+    <label for='Sales'>
+      <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/del.png'>
+      <span>Funzioni</span>
+      <div class='lil_arrow'></div>
+      <div class='bar'></div>
+      <div class='swanky_wrapper__content'>
+        <ul>
+          <!--     <li> <h3><a href="home.html"><font color="red">Home</font></a></h3></li>
+      <li> <h3> <a href="databasemedici.html">Database Medici</a></h3></li>
+          <li><h3> <a href="search-patient.html">Cerca paziente</a></h3></li>
+              <li> <h3><a href="search-doctor.html">Cerca medico</a></li>-->
+          <li> <a href="search-doctor.html">Cerca medico</a></li>
+          <li><a href="informazionimedici.html">Visualizza dati salvati medici</a></li>
+          <li><a href="search-patient.html">Cerca paziente</a></li>
+          <li><a href="informazionipazienti.html">Visualizza dati salvati pazienti</a></li>
+        </ul>
+      </div>
+    </label>
+    <input id='Messages' name='radio' type='radio'>
+    <label for='Messages'>
+      <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/mess.png'>
+      <span>Messaggi</span>
+      <div class='lil_arrow'></div>
+      <div class='bar'></div>
+      <div class='swanky_wrapper__content'>
+        <ul>
+          <li><a href="socialpage.html">Social</a></li>
+          <li><a href="/contact page/index.html">Contatti</a></li>
+          <li><a href="https://docs.google.com/document/d/1VF00AzP4ZtUFivMkldWEGGmBwGR6vLE1VVVvXgK3EXo/edit?usp=sharing" target="_blank">Documenazione</a></li>
+          <li>#</li>
+        </ul>
+      </div>
+    </label>
+    <input id='Users' name='radio' type='radio'>
+    <label for='Users'>
+      <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/users.png'>
+      <span>Utente</span>
+      <div class='lil_arrow'></div>
+      <div class='bar'></div>
+      <div class='swanky_wrapper__content'>
+        <ul>
+          <li><a href="/pagina sanitaria con scelta/reg.html">Crea nuovo account</a></li>
+          <li><a href="/pagina sanitaria con scelta/aziendasanitaria.html">Disconnettiti</a></li>
+          <li><a href="/pagina sanitaria con scelta/accessopazienti.html">Accedi come paziente</a></li>
+          <li><a href="assistenza.html">Assistenza</a></li>
+        </ul>
+      </div>
+    </label>
+  <!-- <input id='Settings' radio='radio' type='radio'>
+    <label for='Settings'>
+      <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/set.png'>
+      <span>Impostazioni</span>
+      <div class='lil_arrow'></div>
+      <div class='swanky_wrapper__content'>
+        <ul>
+          <li>Disconnettiti</li>
+          <li>Cambia account</li>
+          <li>Assistenza</li>
+          <li></li>
+        </ul>
+      </div>
+    </label>--> 
+  </div>
+  <!-- /////////// End Dropdown //////////// -->
+</div>
+<!-- / My Footer -->
+<!-- partial -->
+
+
+
+<!--    <ul>
+      <li> <h3><a href="home.html"><font color="red">Home</font></a></h3></li>
+      <li> <h3> <a href="databasemedici.html">Database Medici</a></h3></li>
+          <li><h3> <a href="search-patient.html">Cerca paziente</a></h3></li>
+              <li> <h3><a href="search-doctor.html">Cerca medico</a></li>
+                <h3><br> <br>
+                  <li> <b> <font color="red">Software informazioni:</font></b></li> <br>
+                  <li> <a href="/file aggiuntivi/Informatica documento specifica Gaetano (1).pdf" target="_blank">Visualizza il documento di analisi</a>
+                  <li> <a href="#"> Scarica qui il programma</a></li>
+
+<br> <br><br> <br><br> <br><br> 
+<br><br> <br><br> <br><br> <br>
+<br> <br><br> <br>
+
+                  <li><h5><a href="/pagina sanitaria con scelta/aziendasanitaria.html" > <font color="blue"> DISCONNETTITI</font></a></h5></li>
+                  <li><h5><U><a href="#" target="_blank">Contatta l'assistenza</U></a></h5> </li>
+              </h3> </ul>
+    
+   <div style="margin-left:10%;padding:1px 10px;height:1000px;">-->
+    <center>
+    <h1 id="medico"><font color="blue">Cerca un Medico</font></h1>
+    <form>
+      <label for="name"><h2 id="nome">Nome:</h2></label>
+      <input type="text" id="name" name="name"><br>
+      
+      <label for="surname"><h2 id="cognome">Cognome:</h2></label>
+      <input type="text" id="surname" name="surname"><br><br>
+
+    <!--   <label for="iscritti_codicefiscale">Codice Fiscale:</label>
+      <input type="text" id="iscritti_codicefiscale" name="iscritti_codicefiscale"> <br>
+     pattern="^[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]$"-->
+    
+       <button type="button" id="btnsearch" class="custom-btn btn-2">Cerca</button>
+
+       <p id="words">
+    </form>
+  <br> 
+  <br>
+  </div> 
+</p>
+</center> 
+    <script>
+        
+//nome cognome cf --> stampa codice fiscale matricola e licenza
+//metodo cerca dottore
+  function searchdoctor(file, name, surname) {
+            // Legge il contenuto del file di testo
+            fetch(file)
+                .then(response => response.text())
+                .then(data => {
+                    // Crea un array di oggetti a partire dal contenuto del file
+                    let dataArray = data.split("\r\n").map(user => {
+                    let userData = user.split("*");
+                    return { name: userData[0], surname: userData[1], iscritti_codicefiscale: userData[2], matricola: userData[3], licenza: userData[4] }
+        });
+                    
+                    // Scorre gli elementi dell'array e confronta i valori inseriti con quelli del file
+                    for (let i = 0; i < dataArray.length; i++) {
+                        if (dataArray[i].name === name && dataArray[i].surname === surname) {
+                            // Se i valori corrispondono, visualizza un messaggio di conferma e permette l'accesso
+                            alert("Dottore:"+dataArray[i].name+" " + dataArray[i].surname +" presente nel database. \n" + "Matricola: " + dataArray[i].matricola + "\nNumero pazienti associati: " + dataArray[i].licenza + "\nCodice fiscale dottore:" + dataArray[i].iscritti_codicefiscale);
+                        return true;
+                        }
+                    }
+                    // Se i valori non corrispondono, visualizza un messaggio di errore e impedisce l'accesso
+                    alert("Dottore Inesistente");
+                    return false;
+                })
+                .catch(error => {
+                    // Gestisce eventuali errori nella lettura del file
+                    console.log("Errore: " + error);
+                    return false;
+                });
+        }
+        // Associamo l'evento click al pulsante di accesso
+        const btn = document.getElementById("btnsearch");
+        btn.addEventListener("click", function() {
+            let name = document.getElementById("name").value;
+            let surname = document.getElementById("surname").value;
+      
+
+            searchdoctor("/file/dottoris.txt", name,surname);
+        });
+
+    </script>
+  </body>
+</html>
+

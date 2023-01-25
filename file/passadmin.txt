@@ -1,0 +1,5 @@
+PASSWORD SVILUPPATORI
+admin*admin
+gaetano*admin
+peppe*admin
+a*a

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ricerca Nome e Cognome</title>
+    <script>
+let lines;
+fetch("data.txt")
+  .then(response => response.text())
+  .then(data => {
+    lines = data.split("\n")
+  });
+
+function searchName() {
+    if (!lines) {
+        alert("I dati non sono ancora stati caricati, riprova più tardi");
+        return;
+    }
+    var nameInput, surnameInput, filterName, filterSurname, found;
+    nameInput = document.getElementById("nameInput");
+    surnameInput = document.getElementById("surnameInput");
+    filterName = nameInput.value.toUpperCase();
+    filterSurname = surnameInput.value.toUpperCase();
+    found = false;
+    for (var i = 0; i < lines.length; i++) {
+      line = lines[i].split('*');
+      name = line[0].toUpperCase();
+      surname = line[1].toUpperCase();
+      for (let i = 0; i < line.length; i++) {
+      if (name === filterName && surname === filterSurname) {
+        alert("Persona trovata!");
+          found = true;
+          
+          break;
+      }
+    } 
+      
+    }
+}
+
+
+
+    </script>
+</head>
+
+<body>
+    <h1>Ricerca Nome e Cognome</h1>
+    <form>
+        <label for="nameInput">Nome:</label>
+        <input type="text" id="nameInput">
+        <label for="surnameInput">Cognome:</label>
+        <input type="text" id="surnameInput">
+        <input type="button" value="Cerca" onclick="searchName()">
+    </form>
+    <pre id="data" style="display:none;">
+    Nome1*Cognome1
+    Nome2*Cognome2
+    Nome3*Cognome3
+    </pre>
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+PASSWORD PERSONALE
+0001*admin
+0002*admin
+0003*admin
+0004*admin
+0005*admin
+0006*admin
+0007*admin
+0008*admin
+0009*admin
+0010*admin
+

@@ -1,0 +1,14 @@
+CARATTERISTICHE PAZIENTE 
+peppe*mariTo*134434*peppe*recchia*901
+peTope*marTio*1344434*142*142*9412
+peTpHpe*marHio*134434*142*142*9024
+peppe*marTHio*1344434*pe4ppe*recchia*901
+peoTGpe*mario*1344344*142*142*9142
+HpepHpe*maGrio*13444344*142*142*9042
+peTpHpe*mario*134434*4peppe*recchia*901
+peoTGpe*maTGrio*1344434*12*12*9124
+pepHpe*Hmario*1434434*12*12*9402
+pTeppe*maGrHio*134434*peppe*recchia*9014
+peoTpe*Gmario*1344434*12*12*9124
+peGpTpHe*mTaHrio*1344434*12*12*9042
+//nome cognome codicefiscale nomedottoreAssociato cognomeDottoreAssociato matricola

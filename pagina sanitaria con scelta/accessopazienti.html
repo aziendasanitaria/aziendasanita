@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Accesso Pazienti</title>
+ 
+  <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'><link rel="stylesheet" href="/parte web personale/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
+
+<style>
+
+ .button {
+            background-color: rgb(27, 26, 24);
+            position: center;
+            border: none;
+            text-decoration: none;
+            color: rgb(212, 39, 39);
+            padding: 20px 20px;
+            margin: 20px 20px;
+            cursor: pointer;
+  }   
+        </style>
+
+      
+</head>
+<body>
+<!-- menu accesso pazienti/ -->
+<div class="login-form">
+  <form action="add-patient.html" method="post">
+    <h1>Accesso Pazienti</h1>
+    <div class="content">
+      <div class="input-field">
+        <input type="text" name="name" id="name" placeholder="Nome">
+      </div>
+      <div class="input-field">
+        <input type="text" id="pass" placeholder="Password" name="pass">
+      </div>
+      <a href="reg.html" target="_blank" class="link">Vuoi eseguire la registrazione?</a>
+    </div>
+    <div class="action">
+      <button type="button" id="loginBtnpaz">Login</button>
+    </div>
+  </form>
+</div>
+<!-- partial -->
+  <script  src="/parte web personale/script.js"></script>
+  <script> 
+//lettura file
+/*
+function checkCredentials(file, name, pass) {
+            // Legge il contenuto del file di testo
+            fetch(file)
+                .then(response => response.text())
+                .then(data => {
+                    // Crea un array di oggetti a partire dal contenuto del file
+                    let dataArray = data.split("\r\n").map(user => {
+                    let userData = user.split("*");
+                    return { name: userData[0], pass: userData[1] }
+        });
+                    
+                    // Scorre gli elementi dell'array e confronta i valori inseriti con quelli del file
+                    for (let i = 0; i < dataArray.length; i++) {
+                        if (dataArray[i].name === name && dataArray[i].pass === pass) {
+                            // Se i valori corrispondono, visualizza un messaggio di conferma e permette l'accesso
+                            //window.open("paginapazientiazienda.html", "_blank");
+                            window.location.href = "paginapazientiazienda.html" ; //stessa pagina
+                            return true;
+                        }
+                    }
+                    // Se i valori non corrispondono, visualizza un messaggio di errore e impedisce l'accesso
+                    alert("Credenziali errate");
+                    return false;
+                })
+                .catch(error => {
+                    // Gestisce eventuali errori nella lettura del file
+                    console.log("Errore: " + error);
+                    return false;
+                });
+        }
+        // Associamo l'evento click al pulsante di accesso
+        const btn = document.getElementById("loginBtnpaz");
+        btn.addEventListener("click", function() {
+            let name = document.getElementById("name").value;
+            let pass = document.getElementById("pass").value;
+            checkCredentials("/file/accessipazienti.txt", name, pass);
+      });
+*/
+
+
+function checkCredentials(file, name, pass) {
+fetch(file)
+.then((response) => response.text())
+.then((data) => {
+let dataArray = data
+.split("\r\n")
+.map((user) => {
+let userData = user.split("*");
+return { name: userData[0], pass: userData[1], cod: userData[2], dottore: userData[3], nomedottore: userData[4], matricola: userData[5]};
+});
+for (let i = 0; i < dataArray.length; i++) {
+          if (dataArray[i].name === name && dataArray[i].pass === pass) {
+            window.open("paginapazientiazienda.html", "_self");
+            localStorage.setItem("cod", dataArray[i].cod);
+            localStorage.setItem("dottore", dataArray[i].dottore);
+            localStorage.setItem("nomedottore", dataArray[i].nomedottore);
+            localStorage.setItem("matricola", dataArray[i].matricola);
+            return true;
+          }
+        }
+        alert("Credenziali errate");
+        return false;
+      })
+      .catch((error) => {
+        console.log("Errore: " + error);
+        return false;
+      });
+  }
+  const btn = document.getElementById("loginBtnpaz");
+  btn.addEventListener("click", function () {
+    let name = document.getElementById("name").value;
+    let pass = document.getElementById("pass").value;
+    checkCredentials("/file/pazientis.txt", name, pass);
+  });
+</script>
+
+
+
+
+</script>
+</body>
+</html>

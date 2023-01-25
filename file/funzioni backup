@@ -1,0 +1,192 @@
+      /*
+    function searchdoctor(file,name,surname,iscritti_codicefiscale,matricola) {
+            // Legge il contenuto del file di testo
+            fetch(file)
+                .then(response => response.text())
+                .then(data => {
+                    // Crea un array di oggetti a partire dal contenuto del file
+                    let dataArray = data.split("\r\n").map(user => {
+                    let userData = user.split("*");
+                    return { name: userData[0], surname: userData[1], iscritti_codicefiscale: userData[2],matricola: userData[3], licenza: userData[4] }
+        });
+                    
+                    // Scorre gli elementi dell'array e confronta i valori inseriti con quelli del file
+                    for (let i = 0; i < dataArray.length; i++) {
+                        if (dataArray[i].name === name && dataArray[i].surname === surname && dataArray[i].iscritti_codicefiscale === iscritti_codicefiscale) {
+                            // Se i valori corrispondono, visualizza un messaggio di conferma e permette l'accesso
+                           // var risultato = "IL medico ha" + ;
+                            //alert("DOTTORE ESISTENTE")
+                            //window.open("home.html", "_blank");
+                             let p = document.createElement("p");
+                             p.innerHTML = `matricola: ${results[i].matricola} licenza: ${results[i].licenza}`;
+                             document.getElementById("results").appendChild(p);
+                            return true;
+                        }
+                    }
+                    // Se i valori non corrispondono, visualizza un messaggio di errore e impedisce l'accesso
+                    alert("dottore Inesistente");
+                    return false;
+                })
+                .catch(error => {
+                    // Gestisce eventuali errori nella lettura del file
+                    console.log("Errore: " + error);
+                    return false;
+                });
+        }
+        // Associamo l'evento click al pulsante di accesso
+        const btn = document.getElementById("btnsearch");
+        btn.addEventListener("click", function() {
+            let name = document.getElementById("name").value;
+            let surname = document.getElementById("surname").value;
+            let iscritti_codicefiscale = document.getElementById("iscritti_codicefiscale").value;
+            let matricola = document.getElementById("matricola").value;
+
+       
+
+            searchdoctor("/file/dottoris.txt", name, surname,iscritti_codicefiscale, matricola);
+        });  */
+
+
+        <style>
+        /*    input[type=button] {
+                background-color: orange;
+                position: center;
+                border: none;
+                text-decoration: none;
+                color: white;
+                padding: 20px 20px;
+                margin: 20px 20px;
+                cursor: pointer;
+    }
+    
+            body {
+              margin: 0;
+            }
+            
+            ul {
+              list-style-type: none;
+              margin: 0;
+              padding: 0;
+              width: 15%;
+              background-color: #f1f1f1;
+              position: fixed;
+              height: 100%;
+              overflow: auto;
+            }
+            
+            li a {
+              display: block;
+              color: #000;
+              padding: 8px 16px;
+              text-decoration: none;
+            }
+            
+            li a.active {
+              background-color: #04AA6D;
+              color: white;
+            }
+            
+            li a:hover:not(.active) {
+              background-color: #555;
+              color: white;
+            } */
+    </style> 
+
+
+
+    <!--    <ul>
+      <li> <h3><a href="home.html"><font color="red">Home</font></a></h3></li>
+      <li> <h3> <a href="databasemedici.html">Database Medici</a></h3></li>
+          <li><h3> <a href="search-patient.html">Cerca paziente</a></h3></li>
+              <li> <h3><a href="search-doctor.html">Cerca medico</a></li>
+                <h3><br> <br>
+                  <li> <b> <font color="red">Software informazioni:</font></b></li> <br>
+                  <li> <a href="/file aggiuntivi/Informatica documento specifica Gaetano (1).pdf" target="_blank">Visualizza il documento di analisi</a>
+                  <li> <a href="#"> Scarica qui il programma</a></li>
+
+<br> <br><br> <br><br> <br><br> 
+<br><br> <br><br> <br><br> <br>
+<br> <br><br> <br>
+
+                  <li><h5><a href="/pagina sanitaria con scelta/aziendasanitaria.html" > <font color="blue"> DISCONNETTITI</font></a></h5></li>
+                  <li><h5><U><a href="#" target="_blank">Contatta l'assistenza</U></a></h5> </li>
+              </h3> </ul>
+    
+   <div style="margin-left:10%;padding:1px 10px;height:1000px;">-->
+
+
+
+
+
+
+
+
+
+
+    /*         function insertFilesIntoHTML() { //V
+      // Get the file contents using the fetch API
+      fetch('/file/accessipazienti.txt')
+        .then(response => response.text())
+        .then(data => {
+          // Insert the contents of dati.txt into a <p> element with an ID
+          const datiParagraph = document.createElement('p');
+          datiParagraph.setAttribute("id", "accesssipazienti");
+          datiParagraph.innerText = data;
+          document.body.appendChild(datiParagraph);
+        });
+        fetch('/file/dottoris.txt')
+        .then(response => response.text())
+        .then(data => {
+          // Insert the contents of dati.txt into a <p> element with an ID
+          const datiParagraph = document.createElement('p');
+          datiParagraph.setAttribute("id", "accesssipazienti");
+          datiParagraph.innerText = data;
+          document.body.appendChild(datiParagraph);
+        });
+
+        
+
+      fetch('/file/passadmin.txt') //V
+        .then(response => response.text())
+        .then(data => {
+          // Insert the contents of peppe.txt into a <p> element with an ID
+          const peppeParagraph = document.createElement('p');
+          peppeParagraph.setAttribute("id", "dati");
+          peppeParagraph.innerText = data;
+          document.body.appendChild(peppeParagraph);
+        });
+//dottoris pazienti dati 
+      
+fetch('/file/pazientis.txt')
+        .then(response => response.text())
+        .then(data => {
+          // Insert the contents of dati.txt into a <p> element with an ID
+          const datiParagraph = document.createElement('p');
+          datiParagraph.setAttribute("id", "accesssipazienti");
+          datiParagraph.innerText = data;
+          document.body.appendChild(datiParagraph);
+        });
+
+        fetch('/file/accessipersonale.txt')
+        .then(response => response.text())
+        .then(data => {
+          // Insert the contents of dati.txt into a <p> element with an ID
+          const datiParagraph = document.createElement('p');
+          datiParagraph.setAttribute("id", "accesssipazienti");
+          datiParagraph.innerText = data;
+          document.body.appendChild(datiParagraph);
+        });
+      }
+
+    function search() {
+      const searchTerm = document.getElementById("search").value;
+      if (!searchTerm) return;
+      const paragraphs = document.getElementsByTagName("p");
+      for (let i = 0; i < paragraphs.length; i++) {
+        const paragraph = paragraphs[i];
+        const text = paragraph.innerText;
+        const newText = text.replace(new RegExp(`(${searchTerm})`, "gi"), '<span class="highlight">$1</span>');
+        paragraph.innerHTML = newText;
+      }
+    }
+*/ 

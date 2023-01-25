@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Confronto nomi e cognomi</title>
+</head>
+<body>
+  <form>
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome"><br><br>
+    <label for="cognome">Cognome:</label>
+    <input type="text" id="cognome" name="cognome"><br><br>
+    <button type="button" onclick="confronta()">Confronta</button>
+  </form>
+  <p id="risultato"></p>
+  
+  <script>
+  function confronta() {
+  // Leggere i valori dei campi di input
+  var nome = document.getElementById("nome").value;
+  var cognome = document.getElementById("cognome").value;
+  
+  // Leggere i valori del file di testo
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var risultato = "I nomi e i cognomi non corrispondono.";
+      var righe = this.responseText.split("\n"); // split the file content by new line
+      
+      var i = 0;
+      while (i < righe.length) {
+        var dati = righe[i].split(","); // split the line by comma
+        var nomeFile = dati[0];
+        var cognomeFile = dati[1];
+        
+        // Confrontare i valori dei campi di input con quelli del file di testo
+        if (nome == nomeFile && cognome == cognomeFile) {
+          risultato = "I nomi e i cognomi corrispondono!";
+          break;
+        }
+        i++;
+      }
+      document.getElementById("risultato").innerHTML = risultato;
+    }
+  };
+  xhttp.open("GET", "dati.txt", true);
+  xhttp.send();
+}
+  </script>
+</body>
+</html>

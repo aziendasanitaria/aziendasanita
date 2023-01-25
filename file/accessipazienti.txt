@@ -1,0 +1,11 @@
+ID E PASSWORD PAZIENTI-->(NOMI E COGNOMI)
+peppe*mario
+Germana*Marinetti
+Alberto*Paoletti
+Adelmo*Boccaccio
+Giorgia*Casalodi
+Manuel*Mengolo
+Telemaco*Praga
+Guglielmo*Contarini
+Elena*Zaccardo
+Leonardo*Trupiano

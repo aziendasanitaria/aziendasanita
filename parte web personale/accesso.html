@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Accesso</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="./styleaccesso.css">
+<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./pulsante1.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+<style>
+
+
+</style>
+<!--  -->
+</head>
+<body>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <header>
+        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+     </header>
+<!-- partial:index.partial.html -->
+<link href='https://fonts.googleapis.com/css?family=Raleway:400,500,300' rel='stylesheet' type='text/css'>
+<div id="mainButton">
+	<div class="btn-text" onclick="openForm()">login</div>
+	<div class="modal">
+		<div class="close-button" onclick="closeForm()">x</div>
+		<div class="form-title">Login</div>
+		<div class="input-group">
+			<input type="text" name="name" id="name" onblur="checkInput(this)" />
+			<label for="name">Username</label>
+		</div>
+		<div class="input-group">
+			<input type="text" id="pass" onblur="checkInput(this)" />
+			<label for="pass">Password</label>
+            <div id="alert" style="color: red;"></div>
+		</div>
+ 
+         <button type="button" id="loginBtn"  class="custom-btn btn-3"><span>  Login</span></button>
+		
+	</div>
+</div>
+<!-- partial -->
+  <script  src="./scriptaccesso.js"></script>
+<script>
+	
+	function checkCredentials(file, name, pass) {
+            // Legge il contenuto del file di testo
+            fetch(file)
+                .then(response => response.text())
+                .then(data => {
+                    // Crea un array di oggetti a partire dal contenuto del file
+                    let dataArray = data.split("\r\n").map(user => {
+                    let userData = user.split("*");
+                    return { name: userData[0], pass: userData[1] }
+        });
+                    
+                    // Scorre gli elementi dell'array e confronta i valori inseriti con quelli del file
+                    for (let i = 0; i < dataArray.length; i++) {
+                        if (dataArray[i].name === name && dataArray[i].pass === pass) {
+                            // Se i valori corrispondono, visualizza un messaggio di conferma e permette l'accesso
+                            alert("Benvenuto")
+                            window.location.href = "home.html"; //stessa pagina
+                         
+                           // window.open("home.html"); altra pagina
+                            return true;
+                        }
+                    }
+                    // Se i valori non corrispondono, visualizza un messaggio di errore e impedisce l'accesso
+                    sweetAlert("Oops...", "Credenziali errate!", "error");
+
+
+                   //alert("Nome utente o password errata");
+                    return false;
+                })
+                .catch(error => {
+                    // Gestisce eventuali errori nella lettura del file
+                    console.log("Errore: " + error);
+                    return false;
+                });
+        }
+        // Associamo l'evento click al pulsante di accesso
+        const btn = document.getElementById("loginBtn");
+        btn.addEventListener("click", function() {
+            let name = document.getElementById("name").value;
+            let pass = document.getElementById("pass").value;
+            checkCredentials("/file/accessipersonale.txt", name, pass);
+        });
+
+
+        //funzione swit alert
+
+//$('#loginBtn').click(function(){
+////    swal("Good job!", "You clicked the button!", "success");
+
+//});
+    
+</script>
+</script>
+</body>
+</html>

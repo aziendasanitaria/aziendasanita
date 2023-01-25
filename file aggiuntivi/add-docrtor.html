@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Verifica Credenziali</title>
+</head>
+<body>
+    <h1>Accedi</h1>
+    <label for="name">Nome:</label>
+    <input type="text" id="name">
+    <br>
+    <label for="surname">Cognome:</label>
+    <input type="text" id="surname">
+    <br>
+    <button id="loginBtn">Accedi</button>
+
+    <script>
+        // Funzione per confrontare i valori inseriti con quelli del file di testo
+        function checkCredentials(file, name, surname) {
+            // Legge il contenuto del file di testo
+            fetch(file)
+                .then(response => response.text())
+                .then(data => {
+                    // Crea un array di oggetti a partire dal contenuto del file
+                    let dataArray = data.split("\r\n").map(user => {
+                    let userData = user.split(",");
+                    return { name: userData[0], surname: userData[1] }
+        });
+                    
+                    // Scorre gli elementi dell'array e confronta i valori inseriti con quelli del file
+                    for (let i = 0; i < dataArray.length; i++) {
+                        if (dataArray[i].name === name && dataArray[i].surname === surname) {
+                            // Se i valori corrispondono, visualizza un messaggio di conferma e permette l'accesso
+                            alert("Accesso consentito");
+                            return true;
+                        }
+                    }
+                    // Se i valori non corrispondono, visualizza un messaggio di errore e impedisce l'accesso
+                    alert("Nome utente o password errati");
+                    return false;
+                })
+                .catch(error => {
+                    // Gestisce eventuali errori nella lettura del file
+                    console.log("Errore: " + error);
+                    return false;
+                });
+        }
+        // Associamo l'evento click al pulsante di accesso
+        const btn = document.getElementById("loginBtn");
+        btn.addEventListener("click", function() {
+            let name = document.getElementById("name").value;
+            let surname = document.getElementById("surname").value;
+            checkCredentials("dati.txt", name, surname);
+        });
+    </script>
+</body>
+</html>

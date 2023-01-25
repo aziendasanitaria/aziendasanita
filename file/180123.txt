@@ -1,0 +1,110 @@
+suggerimenti PROF
+
+inserire tasto torna indietro quando si fa laccesso per tornare alla pagina --> aziendasanitaria
+inserire la parte paziente con: medico curante e informazioni tel ecc   
+migliorare e separare gli accessi
+
+
+//miglioramenti
+21//01/23 MANUTENZIONE
+snellimento del codice
+accessi personale e pazienti creati in modo separato
+pagina principale
+file login creati per personale e pazienti
+creato portale pazienti
+creata modalità disconnessione per tornare al portale principale
+migliorate le funzioni e ridotti i campi di ricerca
+aggiornato il menù
+migliorato lo style delle pagine
+inserita pagina assistenza
+aggiustata pagina registrazione
+eliminato il metodo crea medico per problemi relativi alle funzioni
+ricerca medico e paziente funzionante
+allert con informazioni aggiuntive medici e pazienti create
+creata pagina con ricerca denominata "database" 
+inserito una tasto torna indietro quando si fa laccesso per tornare alla pagina --> aziendasanitaria
+inserire allert paziente con: nome e cognome medico curante e informazioni tel ecc   
+inserito allert dottore con: num pazienti licenza e matricola
+sviluppo database con file
+aggiungere un database medici
+aggiungere un database pazienti
+creare nel menù due campi per i due database
+inserire nelle pagine database un funzione per la ricerca
+creare dei livelli di personale--> inserimento di credenziali file con credenziali admin
+risolto problema che quando ri ricerca mi organizza i dati in un paragrafo
+eliminato il menù laterale quando genero il database 
+create le funzione  toggleMenu(); generateDatabase() 
+creata funzione per la generazione del database in modo che posso generare il database una sola volta
+aggiunta alla pagina database il tasto torna indietro
+inserimento di un menù interativo 
+aggiornamento del menù
+parte grafica da migliorare nelle pagine di ricerca
+-database-
+ogni volta che effetto la ricerca non deve raggruppare le parole ma lasciarle come quando generate
+separare i campie
+eliminare gli * durante la stampa nel database
+andare a capo ogni cognome stampato
+aggiornamento del menù
+-alert 
+allert colorati ricerca pazienti medici
+pagine informazioni medici e pazienti
+font registrazione
+pagina assistenza da fares
+pagina accesso database
+parte messaggi menu
+pagine per visualizzare dati
+gestita la parte social page 
+creati altri 3 menù per ogni pagina
+modificati i pulsanti per il login 
+finita parte grafica con pagina assistenza
+creata pagina assistenza
+allargare dal css le scritte nelle pagine di ricerca
+aggiustare parte di registrazione
+aggiustare le parti di visualizzazzione dati 
+realizzata la contact page 
+inserita la contact page nel menu
+controllo cf
+
+
+//fare urgente (fatto tranne aggiustare database)
+
+parte database  da aggiustare ( vedere quali campi leggere )
+parte paziente con cosa può vedere (da vedere con alessandro)
+inserire swit alert --> controllare tutti gli swit alert
+collegare tutti i campi dei menu anche se alcuni inutili
+aggiustare font pagina registrazione
+
+
+22/01/23
+
+pagina accesso pazienti con dati associati
+
+GESTIONE LOCAL STORAGE ( PER IL SALVATAGGIO DEI DATI CORRISPONDENTI E PORTARLI IN UN ALTRA PAGINA)
+COLLEGAMENTI-->  V
+
+aggiustata la parte funzionale della pagina paziente
+Creazione controllo codice fiscales
+
+
+
+PAGINA registrazione
+qualsiasi controllo sulla pagina registrazione (fatto ma da rifinire)
+scrivere sui file con php ecc (vedere cartella database)
+
+
+//da fare
+
+inserire il menù nelle pagine dove manca es: social
+possibilità di scaricare i file PER UN LIVELLO SUPERIORE
+
+possibilita di creare vari livelli di accesso per il personale in modo che il database sia dato ad un livello di gerarghia più alto
+CREARE UN TASTO NELLA PARTE PAZIENTE / MEDICO PER VISUALIZZARE LE informazioni QUANDO SI VUOLE
+TASTO TORNA INDIETRO ACCESSI E REG.
+iNSERIRE PAGINA DI MANUTENZIONE CON TUTTI GLI AGGIORNAMENTI NEL MENù
+
+
+
+inserire nuovo livello di accesso con file ecc.
+
+
+-  tasto torna alla home

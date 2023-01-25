@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="./menu3.css">
+
+    <title>Informazioni pazienti</title> 
+           <style>
+       
+       
+       
+       .text-center {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+       }
+       #accessipazienti {
+          font-size: 40px;
+          align-items: center;
+       }
+      
+ </style>
+</head>
+<body onload="insertFilesIntoHTML()">
+    <script>
+     function insertFilesIntoHTML() {
+     // Get the file contents using the fetch API
+     fetch('/file/pazientis.txt')
+       .then(response => response.text())
+       .then(data => {
+         // Create a div element with a class to center the paragraph
+         const container = document.createElement('div');
+         container.setAttribute("class", "text-center");
+         // Insert the contents of dati.txt into a <p> element with an ID
+         const datiParagraph = document.createElement('p');
+         datiParagraph.setAttribute("id", "accessipazienti");
+         datiParagraph.innerText = data;
+         // Append the paragraph to the container
+         container.appendChild(datiParagraph);
+         document.body.appendChild(container);
+       });
+     }
+
+ 
+         </script>
+ 
+
+         
+        <nav class="menu">
+            <input id ="menu__toggle" type="checkbox" class='menu__toggle'/>
+            <label for="menu__toggle" class="menu__toggle-label">
+              <svg preserveAspectRatio='xMinYMin' viewBox='0 0 24 24'>
+                <path d='M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z' />
+              </svg>
+              <svg preserveAspectRatio='xMinYMin' viewBox='0 0 24 24'>
+                <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+              </svg>
+            </label>
+            <ol class='menu__content'>
+              <li class="menu-item"><a href="home.html">Home</a></li>
+              <li class="menu-item"><a href="socialpage.html">Social</a></li>
+              <li class="menu-item">
+                <a href="#0">Funzionalità</a>
+                <ol class="sub-menu">
+                  <li class="menu-item"><a href="search-doctor.html">Cerca medico</a></li>
+                  <li class="menu-item"><a href="search-patient.html">Cerca pazienti</a></li>
+                  <li class="menu-item"><a href="informazionimedici.html">Visualizza informazioni sui Dottori</a></li>
+                </ol>
+              </li>
+              <li class="menu-item">
+                <a href="#0">Utente</a>
+                <ol class="sub-menu">
+                  <li class="menu-item"><a href="#0">Cambia Passoword</a></li>
+                  <li class="menu-item"><a href="/pagina sanitaria con scelta/reg.html">Crea Nuovo Account</a></li>
+                  <li class="menu-item"><a href="/pagina sanitaria con scelta/aziendasanitaria.html">Disconnettiti</a></li>
+                </ol>
+              </li>
+              <li class="menu-item"><a href="assistenza.html">Assistenza</a></li>
+            </ol>
+          </nav>
+          <center>
+          <div id="container"> </div>
+          <!-- partial -->
+        
+</center>
+  
+</body>
+</html>
